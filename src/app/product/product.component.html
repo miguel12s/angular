@@ -1,0 +1,48 @@
+<section class="products">
+        
+    <mat-card class="card" *ngFor="let product of products">
+  
+      <mat-card-header>
+        <mat-card-title>
+        <div class="container-img">
+          <div class="star">
+  
+            <mat-icon class="star" *ngFor="let stairs of  paintStars(product.rating.rate)">
+             star </mat-icon>
+             </div>
+        <img [src]="product.image" alt="">
+        </div>
+      </mat-card-title>
+      </mat-card-header>
+     
+      <mat-card-content>
+        
+        <a [routerLink]="['/description',product.id]"  class="text-center" >
+        {{product.title}}
+        
+      </a>
+
+
+
+
+
+
+
+
+   </mat-card-content>
+    <mat-card-actions class="container-button">
+    
+     
+    <button mat-raised-button color="primary">{{product.price |currency}}</button> 
+    
+     
+    </mat-card-actions>
+    </mat-card>
+    
+    </section>
+  
+    
+    
+    
+    
+    

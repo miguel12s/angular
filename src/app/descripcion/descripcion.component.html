@@ -1,0 +1,55 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+<div class="container">
+  <div class="row">
+    <div class="col-12  col-sm-12 col-lg-6 mt-4 container-img">
+      <img [src]="product.image" alt="" />
+    </div>
+
+    <div class="col-12 col-sm-12 col-lg-6 mt-4">
+      <mat-card class="card">
+        <mat-card-title class="mt-4">
+          <p>{{ product.title}}</p>
+        </mat-card-title>
+        <mat-card-content>
+          <div class="icon">
+            <mat-icon *ngFor="let product of paintStars(product.rating[0])"
+              >star</mat-icon
+            >
+          </div>
+          <span class="category"
+            >Categoria
+            <p>{{ product.category }}</p></span
+          >
+         <p> {{ product.description }} </p>
+         <h2 class="price" > {{product.price |currency}}</h2>
+
+          <div class="container-gadget">
+            <span class="badge bg-success">In stock</span>
+            <span class="badge bg-secondary"
+              >Quedan {{ product.rating[1] }} Unidades</span
+            >
+
+            
+          </div>
+          <p class="text-center">Quantity</p> 
+          <div class="action-buy">
+            <button class="btn btn-danger" (click)="decrement()">-</button>    <input style="text-align: center;" type="text " value="{{counter}}" class="form-control" max="product.rating[1]"  ><button class="btn btn-primary"  (click)="increment()">+</button>
+        </div>
+        </mat-card-content>
+        <mat-card-actions class="d-flex justify-content-center m-4" >
+           
+       
+
+           
+        <button mat-raised-button color="primary"><mat-icon >add_shopping_cart</mat-icon>      Comprar</button>
+        </mat-card-actions>
+        
+      </mat-card>
+    </div>
+  </div>
+</div>
