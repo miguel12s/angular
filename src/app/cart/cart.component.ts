@@ -17,7 +17,7 @@ import { productService } from '../header/services/product.service';
   </ng-container>`
   
   ,
-  styleUrls: ['./cart.component.css']
+  styles:[]
 })
 export class CartComponent {
   constructor(private productService:productService){}
