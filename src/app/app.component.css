@@ -1,0 +1,10 @@
+#shoping{
+    margin-left: 1000px;
+}
+section.products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center     ;
+}
+

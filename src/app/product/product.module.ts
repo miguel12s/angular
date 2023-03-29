@@ -9,18 +9,22 @@ import { DescripcionComponent } from '../descripcion/descripcion.component';
 
 import { ProductRoutingModule } from './product-routing.module';
 import { ProductComponent } from './product.component';
-import { productService } from './services/product.service';
+import { productService } from '../header/services/product.service';
+import { ProductsComponent } from './products/products.component';
+import { FiltroPipe } from './pipe/filtro.pipe';
+import {MatSelectModule} from '@angular/material/select'
+import {  NgxSpinnerModule } from 'ngx-spinner';
 
 
 
 @NgModule({
   declarations: [
-ProductComponent
+ProductComponent, ProductsComponent, FiltroPipe
   ],
   imports: [
-    ProductRoutingModule,MatCardModule,MatInputModule,MatIconModule,MatButtonModule,CommonModule
+    ProductRoutingModule,MatCardModule,MatInputModule,MatIconModule,MatButtonModule,CommonModule,MatSelectModule,NgxSpinnerModule
   ],
-  exports:[ProductComponent],
-  providers:[productService,DescripcionComponent]  
+  
+  providers:[DescripcionComponent]  
 })
 export class ProductModule { }

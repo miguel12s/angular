@@ -1,0 +1,55 @@
+<div class="container d-flex justify-content-start align-items-center gap-2 mb-3" style="width:45%"><br><br><br>
+  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #search
+    (keyup)="searchProducts(search.value)">
+    <br><br><br>
+
+  <div class="input-group ">
+    <select class="form-select" #select id="inputGroupSelect02" (change)="filterCategory(select.value)">
+      <option   >All</option>
+     <option *ngFor="let category of categories " value="{{category}}">{{category}}</option>
+    </select>
+  </div>
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner> 
+
+<section class="products" *ngIf="products[0].category!=''">
+  <app-product *ngFor="let product  of products  |filtro:page:searche:categorie" [product]="product"
+    (addCartToClic)="addCartToClick($event)" />
+
+
+
+
+
+</section>
+<h2 class=" text-center mt-5 mb-5" *ngIf="(products|filtro:page:searche:categorie).length==0" >
+  No existen productos relacionados con la busqueda
+    </h2>
+<div class=" d-flex justify-content-center align-items-center ">
+  <nav aria-label="Page navigation example ">
+    <ul class="pagination d-flex gap-2">
+      <li class="page-item"><button class="btn btn-primary " routerLink="products" (click)="decrement()"
+          [disabled]="pageInit">Previous</button></li>
+      <li class="page-item"><button class="btn btn-primary" routerLink="products"
+          [disabled]="(products|filtro:page:searche:categorie).length==0">1</button></li>
+      <li class="page-item"><button class="btn btn-primary" routerLink="products" (click)="increment()"
+          [disabled]="(products|filtro:page:searche:categorie).length==0">2</button></li>
+
+
+
+
+      <li class="page-item"><button class="btn btn-primary" (click)="increment()" routerLink="products"
+          [disabled]="(products|filtro:page:searche:categorie).length==0">
+
+          3
+        </button>
+
+      </li>
+      <li class="page-item"><button class="btn btn-primary" routerLink="products" (click)="increment() "
+          [disabled]="">Next</button></li>
+    </ul>
+   
+  </nav>
+
+
+  
+</div>
