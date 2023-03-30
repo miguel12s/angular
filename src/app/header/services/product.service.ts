@@ -85,6 +85,7 @@ export class productService {
    this.price$.next(0)
    this.quantity$.next(0)
    this.product=[]
+
    
   }
 

@@ -97,10 +97,16 @@ this.productService.updateQty(product)
   }
 
   finishShoppingCard():void{
-    Swal.fire("Compra realizada", "Compra realizada con exito. Se reiniciara el carrito", "success")
+    Swal.fire("Compra realizada", "Compra realizada con exito. Se reiniciara el carrito", "success").then(
+      (result:any)=>{
+        if(result.isConfirmed){
+          this.router.navigate(['/products'])
+          this.productService.resetCart()
+        }
+      }
+    )
 
-this.productService.resetCart()
-this.router.navigate(['/products'])
+
 
 
 
